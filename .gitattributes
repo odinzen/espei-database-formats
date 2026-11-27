@@ -1,0 +1,28 @@
+# Store text with LF, check out native line endings.
+* text=auto
+
+# Scripts that must keep one line ending.
+*.sh   text eol=lf
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+
+# Binary files are stored as-is, never converted.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.tif  binary
+*.tiff binary
+*.pdf  binary
+*.docx binary
+*.doc  binary
+*.xlsx binary
+*.xls  binary
+*.pptx binary
+*.zip  binary
+*.npy  binary
+*.npz  binary
+*.h5   binary
+*.hdf5 binary
+*.pkl  binary
+*.mat  binary
