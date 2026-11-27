@@ -5,7 +5,7 @@ version: 0.1.0
 doi: 10.5281/zenodo.24594659
 date-released: 2026-11-27
 license: MIT
-repository-code: "https://github.com/odinzen/odinzen-espei-database-formats"
+repository-code: "https://github.com/odinzen/espei-database-formats"
 authors:
   - family-names: Bustamante
     given-names: Michael E.

@@ -17,7 +17,7 @@ first.
 ## Install
 
 ```
-pip install "espei-database-formats[xtdb] @ git+https://github.com/odinzen/odinzen-espei-database-formats"
+pip install "espei-database-formats[xtdb] @ git+https://github.com/odinzen/espei-database-formats"
 ```
 
 Requires Python 3.10 or newer, pycalphad 0.11 and ESPEI 0.9.1 or newer. The `xtdb` extra installs
