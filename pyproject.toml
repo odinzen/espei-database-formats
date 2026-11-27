@@ -3,20 +3,22 @@ requires = ["setuptools>=64"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "espei-dat"
+name = "espei-database-formats"
 version = "0.1.0"
-description = "Fit parameters of ChemSage DAT, TDB and XTDB databases with ESPEI"
+description = "ESPEI fitting for ChemSage DAT, TDB and XTDB databases"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{name = "Michael E. Bustamante"}]
-dependencies = ["pycalphad>=0.11", "espei>=0.9", "pyyaml"]
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = ["pycalphad>=0.11", "espei>=0.9.1", "pyyaml"]
 
 [project.optional-dependencies]
 xtdb = ["pycalphad-xtdb"]
 test = ["pytest"]
 
 [project.scripts]
-espei-dat = "espei_dat.cli:main"
+espei-database-formats = "espei_database_formats.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

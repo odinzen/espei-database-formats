@@ -4,8 +4,8 @@ import numpy as np
 import pytest
 from pycalphad import Database, calculate
 
-import espei_dat
-from espei_dat import parameterize_database
+import espei_database_formats
+from espei_database_formats import parameterize_database
 
 TEST_DAT = str(importlib.resources.files("pycalphad.tests.databases") / "MQMQA-tern-tests.dat")
 TERNARY = dict(symbol="VV0001", phase="TERN_XS_111", parameter_type="MQMX",
@@ -49,21 +49,21 @@ def test_a_spec_must_select_exactly_one_nonzero_parameter(spec, message):
         parameterize_database(Database(TEST_DAT), [dict(spec, symbol="VV0003", parameter_type="MQMX")])
 
 
-def test_datfit_file_loads_through_pycalphad_and_espei_finds_the_symbols(tmp_path):
+def test_dbfit_file_loads_through_pycalphad_and_espei_finds_the_symbols(tmp_path):
     from espei.utils import database_symbols_to_fit
-    (tmp_path / "x.datfit").write_text(
+    (tmp_path / "x.dbfit").write_text(
         f"database: {TEST_DAT}\n"
         "parameters:\n"
         "  - {symbol: VV0001, phase: TERN_XS_111, parameter_type: MQMX,\n"
         "     constituents: [[CU, MG], [VA, VA]], additional_mixing_constituent: NI}\n")
-    dbf = Database(str(tmp_path / "x.datfit"))
+    dbf = Database(str(tmp_path / "x.dbfit"))
     assert database_symbols_to_fit(dbf) == ["VV0001"]
     assert _gm(dbf, "TERN_XS_111", {"VV0001": -10000.0}) == pytest.approx(_gm(Database(TEST_DAT), "TERN_XS_111"),
                                                                            rel=1e-12, abs=1e-8)
 
 
-def test_relative_database_path_is_read_next_to_the_datfit(tmp_path):
+def test_relative_database_path_is_read_next_to_the_dbfit(tmp_path):
     import shutil
     shutil.copy(TEST_DAT, tmp_path / "db.dat")
-    (tmp_path / "x.datfit").write_text("database: db.dat\n")
-    assert "TERN_XS_111" in Database(str(tmp_path / "x.datfit")).phases
+    (tmp_path / "x.dbfit").write_text("database: db.dat\n")
+    assert "TERN_XS_111" in Database(str(tmp_path / "x.dbfit")).phases

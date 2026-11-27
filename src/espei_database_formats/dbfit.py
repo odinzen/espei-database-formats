@@ -1,21 +1,22 @@
-"""The ``.datfit`` format: YAML naming a database and the parameters in it to fit.
+"""The ``.dbfit`` format: YAML naming a database and the parameters in it to fit.
 
 The database is any file pycalphad can read, chosen by its extension: ``.dat`` (ChemSage),
 ``.tdb``, or ``.xtdb`` when pycalphad-xtdb is installed.
 
-    database: CaO-MgO-Al2O3.dat        # relative to this file
+    database: MQMQA-tern-tests.dat     # relative to this file
     parameters:
       - symbol: VV0001
-        phase: LIQUID
+        phase: TERN_XS_111
         parameter_type: MQMX
-        constituents: [[CA, AL], [O]]
-        additional_mixing_constituent: MG
+        constituents: [[CU, MG], [VA, VA]]
+        additional_mixing_constituent: NI
       - symbol: VV0002
-        phase: C3MA2
-        parameter_type: G
-        constituents: [[AL], [CA], [MG], [O]]
+        phase: L_SUBG_2
+        parameter_type: MQMX
+        constituents: [[CU, NI], [VA, VA]]
+        exponents: [0, 1, 0, 0]
         mode: offset
-        value: -1220.0
+        value: -1000.0
 """
 from pathlib import Path
 
@@ -27,16 +28,16 @@ from tinydb.storages import MemoryStorage
 from .parameters import parameterize_database
 
 
-def read_datfit(dbf, fd):
+def read_dbfit(dbf, fd):
     spec = yaml.safe_load(fd)
     path = Path(spec["database"])
     if not path.is_absolute():
         name = getattr(fd, "name", None)
         if name is None:
-            raise ValueError("a .datfit read from a string needs an absolute database path")
+            raise ValueError("a .dbfit read from a string needs an absolute database path")
         path = Path(name).resolve().parent / path
-    if path.suffix.lower() == ".datfit":
-        raise ValueError(f"{path} is itself a .datfit")
+    if path.suffix.lower() == ".dbfit":
+        raise ValueError(f"{path} is itself a .dbfit")
     source = Database(str(path))
     # fill the Database pycalphad handed us, the way Database.__deepcopy__ copies one
     for key, value in source.__dict__.items():

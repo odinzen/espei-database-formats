@@ -1,0 +1,55 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below, and cite ESPEI and pycalphad, which it drives."
+title: "espei-database-formats: ESPEI fitting for ChemSage DAT, TDB and XTDB databases"
+version: 0.1.0
+date-released: 2026-11-27
+license: MIT
+repository-code: "https://github.com/odinzen/espei-database-formats"
+authors:
+  - family-names: Bustamante
+    given-names: Michael E.
+    orcid: "https://orcid.org/0009-0009-9001-8151"
+    affiliation: Odinzen LLC
+keywords:
+  - CALPHAD
+  - ESPEI
+  - pycalphad
+  - MQMQA
+  - thermodynamic database
+  - uncertainty quantification
+references:
+  - type: article
+    title: "ESPEI for efficient thermodynamic database development, modification, and uncertainty quantification: application to Cu-Mg"
+    authors:
+      - family-names: Bocklund
+        given-names: Brandon
+      - family-names: Otis
+        given-names: Richard
+      - family-names: Egorov
+        given-names: Aleksei
+      - family-names: Obaied
+        given-names: Abdulmonem
+      - family-names: Roslyakova
+        given-names: Irina
+      - family-names: Liu
+        given-names: Zi-Kui
+    journal: "MRS Communications"
+    volume: 9
+    issue: 2
+    start: 618
+    end: 627
+    year: 2019
+    doi: 10.1557/mrc.2019.59
+  - type: article
+    title: "pycalphad: CALPHAD-based Computational Thermodynamics in Python"
+    authors:
+      - family-names: Otis
+        given-names: Richard
+      - family-names: Liu
+        given-names: Zi-Kui
+    journal: "Journal of Open Research Software"
+    volume: 5
+    issue: 1
+    start: 1
+    year: 2017
+    doi: 10.5334/jors.140
