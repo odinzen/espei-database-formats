@@ -17,7 +17,7 @@ first.
 ## Install
 
 ```
-pip install "espei-database-formats[xtdb] @ git+https://github.com/odinzen/espei-database-formats"
+pip install "espei-database-formats[xtdb] @ git+https://github.com/odinzen/odinzen-espei-database-formats"
 ```
 
 Requires Python 3.10 or newer, pycalphad 0.11 and ESPEI 0.9.1 or newer. The `xtdb` extra installs
@@ -88,6 +88,7 @@ and the parameter layout its DAT reader produces. No code was copied from either
 ## License and citation
 
 Code: MIT, copyright Odinzen LLC. Data and figures: CC BY 4.0 (this release ships none). If you use
-this package, please cite it (see `CITATION.cff`), and
+this package, please cite it (Zenodo, [doi:10.5281/zenodo.24594659](https://doi.org/10.5281/zenodo.24594659);
+all versions: [doi:10.5281/zenodo.24594658](https://doi.org/10.5281/zenodo.24594658)), and
 cite ESPEI (Bocklund et al., MRS Communications 9 (2019) 618, doi:10.1557/mrc.2019.59) and pycalphad
 (Otis and Liu, Journal of Open Research Software 5 (2017) 1, doi:10.5334/jors.140), which it drives.
